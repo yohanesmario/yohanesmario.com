@@ -1,4 +1,4 @@
-# yohanesmario.github.io
+# yohanesmario.com
 
 This repository contains a blog by Yohanes Mario Chandra.
 
