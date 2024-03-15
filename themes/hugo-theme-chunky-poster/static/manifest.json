@@ -1,0 +1,13 @@
+{
+   "name":"Chunky Poster",
+   "short_name":"Chunky Poster",
+   "icons":[
+      {
+         "src":"/favicon.svg",
+         "type":"image/svg+xml"
+      }
+   ],
+   "theme_color":"#0c344b",
+   "background_color":"#ffffff",
+   "display":"standalone"
+}

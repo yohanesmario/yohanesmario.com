@@ -1,0 +1,102 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  {{ block "title" . }}
+    {{ with .Params.Title }} {{ . }} | {{ end }}
+    {{ .Site.Title }}
+  {{ end }}
+</title>
+
+{{- if .Description -}}
+  <meta name="description" content="{{ .Description }}">
+{{- else if .Site.Params.description -}}
+  <meta name="description" content="{{ .Site.Params.description }}">
+{{- end -}}
+
+<meta name="author" content="{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ .Site.Params.author }}{{ end }}">
+
+<link rel="manifest" href="{{ "manifest.json" | relURL }}">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+
+{{ if .Site.Params.prismJS.enable }}
+    {{ if .Site.Params.prismJS.theme }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-{{ .Site.Params.prismJS.theme }}.min.css">
+    {{ else }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
+    {{ end }}
+{{ end }}
+
+{{ with index .Site.Data "chunky-poster" }}
+    {{ range $vendor := .assets }}
+        {{ if $vendor.css }}
+            <link rel="stylesheet" href="{{ print "dist/" $vendor.css | relURL }}">
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ range .Site.Params.customCSS -}}
+    <link rel="stylesheet" href="{{ "css/" | relURL }}{{ . }}">
+{{ end }}
+
+<link rel="canonical" href="{{ .Permalink }}">
+{{- with .OutputFormats.Get "RSS" }}
+  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
+  <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}">
+{{- end -}}
+
+{{- template "_internal/opengraph.html" . -}}
+{{- template "_internal/schema.html" . -}}
+{{- template "_internal/twitter_cards.html" . -}}
+
+<style type="text/css">
+  .card-text, .content-page.container .content, .homepage.container .content {
+      line-height: 2;
+  }
+
+  .content-page.container .content > p, .homepage.container .content > p, .card-text {
+      text-align: justify;
+  }
+
+  .content-page.container img {
+      max-width: 100%;
+  }
+
+  .blink {
+      animation: blink-animation 1s steps(5, start) infinite;
+      -webkit-animation: blink-animation 1s steps(5, start) infinite;
+  }
+
+  @keyframes blink-animation {
+      to {
+          visibility: hidden;
+      }
+  }
+  @-webkit-keyframes blink-animation {
+      to {
+          visibility: hidden;
+      }
+  }
+
+  .font-mono {
+      font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  }
+
+  .figure-bio {
+      border: 8px solid white;
+      box-shadow: 0 0 3px #888;
+      box-sizing: border-box;
+      float: left;
+      margin: 10px 24px 16px 0;
+      transform:rotate(-5deg);
+  }
+
+  .figure-bio img {
+    width: 162.5px;
+    height: 162.5px;
+  }
+
+  .emoji {
+      font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols;
+  }
+</style>

@@ -1,0 +1,80 @@
+baseURL = "https://yohanesmario.com"
+title = "Mario's Blog"
+copyright = "Copyright © 2023, Yohanes Mario Chandra; all rights reserved."
+paginate = 7
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+googleAnalytics = "UA-XXXX"
+disqusShortname = "yohanesmariodotcom"
+theme = "hugo-theme-chunky-poster"
+enableEmoji = true
+summaryLength = 30
+ignoreFiles = [ "README.md" ]
+
+[permalinks]
+  posts = "/article/:title/"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    identifier = "biography"
+    name = "Biography"
+    url = "/biography/"
+    weight = 0
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 0
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[params]
+  author = "Yohanes Mario Chandra"
+  description = "夢は汗の中に 少しずつ咲いて行く花 その努力 決して裏切らない"
+  homepageImage = "/images/63752.jpg"
+  errorImage = "/images/3573497_1080.jpg"
+  share = true
+  showLanguageSwitcher = false
+
+  # Custom CSS and JS. Relative to /static/css and /static/js respectively.
+  customCSS = []
+  customJS = []
+
+  [params.social]
+    rss = true
+    email = "yohanes.mc@gmail.com"
+    facebook = "https://facebook.com/yohanesmario"
+    twitter = "https://twitter.com/yohanesmario"
+    linkedin = "https://linkedin.com/yohanesmario"
+    instagram = "https://stackoverflow.com/yohanesmario"
+    github = "https://github.com/yohanesmario"
+    gitlab = "https://gitlab.com/yohanesmario"
+
+  [params.prismJS]
+    enable = true
+    theme = ""
+
+  [params.commento]
+    enable = true
+    url = "https://commento.io"
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+
+[services]
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true

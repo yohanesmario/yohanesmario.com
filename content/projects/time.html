@@ -1,0 +1,80 @@
++++
+title = "Time"
++++
+<time id="target-time"></time>
+<script type="text/javascript" src="/js/strftime.js"></script>
+<script>
+    (function(){
+        var offset = 0;
+        var fetchOffsetTimeout = null;
+
+        const fetchOffset = function(){
+            if (fetchOffsetTimeout != null) {
+                clearTimeout(fetchOffsetTimeout);
+            }
+            fetchOffsetTimeout = null;
+
+            var startFetch = new Date();
+            var endFetch = null;
+            fetch("https://worldtimeapi.org/api/timezone/Etc/UTC", {
+                method: "GET", 
+            }).then(function(res){
+                endFetch = new Date();
+                return res.json();
+            }).then(function(data){
+                var fromServer = new Date(data.utc_datetime);
+                var responseTime = endFetch.getTime() - startFetch.getTime();
+                if (fetchOffsetTimeout != null) {
+                    clearTimeout(fetchOffsetTimeout);
+                }
+                fetchOffsetTimeout = setTimeout(function(){
+                    fetchOffset();
+                }, 30000);
+            });
+        };
+
+        fetchOffset();
+
+        setInterval(function(){
+            var dateObject = new Date(new Date().getTime() + offset);
+            var datetime = dateObject.toISOString();
+            document.getElementById("target-time").setAttribute("datetime", datetime);
+            document.getElementById("target-time").innerHTML = strftime('%H:%M:%S', dateObject);
+        }, 500);
+
+        function timeChanged(delta) {
+            fetchOffset();
+        }
+
+        setInterval(function timeChecker() {
+            var oldTime = timeChecker.oldTime || new Date(),
+                newTime = new Date(),
+                timeDiff = newTime - oldTime;
+            
+            timeChecker.oldTime = newTime;
+            
+            if (Math.abs(timeDiff) >= 5000) { // Five second leniency
+                timeChanged(timeDiff);
+            }
+        }, 500);
+    })();
+</script>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
+    #target-time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-size: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+    }
+</style>
