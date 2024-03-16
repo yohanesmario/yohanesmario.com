@@ -6,8 +6,8 @@ Powered by [Hugo](https://gohugo.io).
 
 ## Getting Started
 - Make sure you've installed hugo: `brew install hugo`
-- Run `./start` to start the server
+- Run `./start.sh` to start the server
 
 ## Creating New Post
-- List down all existing folders using `./listfolders`
-- Generate the new post with `./newpost`
+- List down all existing folders using `./listfolders.sh`
+- Generate the new post with `./newpost.sh`
