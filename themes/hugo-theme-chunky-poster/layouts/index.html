@@ -10,9 +10,11 @@
             {{- end -}} -->
 
             <h1 class="display-4 font-mono homepage-title">{{ .Site.Title }}</h1>
-            {{- with .Site.Params.description -}}
-                <h6 class="font-weight-normal text-muted font-mono homepage-description">{{ . | safeHTML }}</h6>
-            {{- end -}}
+            <h6 class="font-weight-normal text-muted font-mono homepage-description"
+                onmouseover="this.innerHTML = '{{ .Site.Params.descriptionEng | safeHTML }}'"
+                onmouseout="this.innerHTML = '{{ .Site.Params.description | safeHTML }}'">
+                {{ .Site.Params.description | safeHTML }}
+            </h6>
         </div>
     </div>
 
