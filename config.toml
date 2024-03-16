@@ -12,6 +12,7 @@ theme = "hugo-theme-chunky-poster"
 enableEmoji = true
 summaryLength = 30
 ignoreFiles = [ "README.md" ]
+enableRobotsTXT = true
 
 [permalinks]
   posts = "/article/:title/"
