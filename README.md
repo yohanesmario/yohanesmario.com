@@ -10,4 +10,4 @@ Powered by [Hugo](https://gohugo.io).
 
 ## Creating New Post
 - List down all existing folders using `./listfolders`
-- Generate the new post with `./genpost`
+- Generate the new post with `./newpost`
