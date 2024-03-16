@@ -10,4 +10,4 @@ Powered by [Hugo](https://gohugo.io).
 
 ## Creating New Post
 - List down all existing folders using `./listfolders`
-- Generate the new post with `./genpost <FolderNameTitleCase> <post-title-kebab-case>`
+- Generate the new post with `./genpost`
