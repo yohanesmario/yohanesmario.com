@@ -1,6 +1,6 @@
 baseURL = "https://yohanesmario.com"
 title = "Mario's Blog"
-copyright = "Copyright © 2023, Yohanes Mario Chandra; all rights reserved."
+copyright = "Copyright © 2024, Yohanes Mario Chandra; all rights reserved."
 paginate = 7
 languageCode = "en"
 DefaultContentLanguage = "en"
