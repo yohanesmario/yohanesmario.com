@@ -9,7 +9,7 @@ author = "Yohanes Mario Chandra"
 > 
 > **— The Doctor, Doctor Who Season 2, Episode 11**
 
-{{< figure src="https://www.gravatar.com/avatar/115e84d8301cc14136617cb587b8a876?s=150&amp;d=mm&amp;r=g" class="figure-bio" >}}
+{{< figure src="https://gravatar.com/userimage/12748246/f662003ebe1838ff34fbc7dbb3f477d9.jpeg?size=256" class="figure-bio" >}}
 
 My name is Yohanes Mario Chandra and I currently stay in Serpong, Indonesia. I studied Informatics at [Parahyangan Catholic University](https://unpar.ac.id). I currently worked at [AgriAku](https://agriaku.com) as a Lead Backend Engineer.
 
