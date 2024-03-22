@@ -56,8 +56,7 @@ series = "series"
 
 [params]
   author = "Yohanes Mario Chandra"
-  description = "夢は汗の中に 少しずつ咲いて行く花 その努力 決して裏切らない"
-  descriptionEng = "Dreams are flowers that bloom little by little in sweat, and will never betray your efforts."
+  description = "Courage - Kindness - Never Give Up"
   homepageImage = "/images/63752.jpg"
   errorImage = "/images/3573497_1080.jpg"
   share = true

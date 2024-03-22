@@ -9,11 +9,14 @@
                 </div>
             {{- end -}} -->
 
-            <h1 class="display-4 font-mono homepage-title">{{ .Site.Title }}</h1>
-            <h6 class="font-weight-normal text-muted font-mono homepage-description"
-                onmouseover="this.innerHTML = '{{ .Site.Params.descriptionEng | safeHTML }}'"
-                onmouseout="this.innerHTML = '{{ .Site.Params.description | safeHTML }}'">
-                {{ .Site.Params.description | safeHTML }}
+            <h1 class="display-4 font-mono homepage-title">
+                <img src="/images/yohanesmariochandra.png" alt="{{ .Site.Title }}" style="max-width: 320px; margin: auto;" />
+                <!-- {{ .Site.Title }} -->
+            </h1>
+            <h6 class="font-weight-normal text-muted homepage-description">
+                <div style="max-width: 320px; margin: auto;">
+                    {{ .Site.Params.description | safeHTML }}
+                </div>
             </h6>
         </div>
     </div>
