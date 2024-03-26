@@ -3,15 +3,12 @@ title = "Time"
 date = "2020-07-31"
 author = "Yohanes Mario Chandra"
 +++
-<time id="target-time"></time>
-<script type="text/javascript" src="/js/strftime.js"></script>
+<div id="target-time"></div>
+<script type="text/javascript" src="/js/moment.min.js"></script>
 <script>
     (function(){
         setInterval(function(){
-            var dateObject = new Date();
-            var datetime = dateObject.toISOString();
-            document.getElementById("target-time").setAttribute("datetime", datetime);
-            document.getElementById("target-time").innerHTML = strftime('%H:%M', dateObject);
+            document.getElementById("target-time").innerHTML = moment().format("HH:mm");
         }, 2000);
     })();
 </script>
