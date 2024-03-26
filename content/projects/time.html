@@ -5,7 +5,8 @@ author = "Yohanes Mario Chandra"
 +++
 <div id="time-container">
     <div id="target-time"></div>
-    <select onchange="changeTimezone(this.value);">
+    <input list="timezone" value="Asia/Makassar" onchange="changeTimezone(this.value);" />
+    <datalist id="timezone">
         <option value='Africa/Abidjan'>Africa/Abidjan</option>
         <option value='Africa/Accra'>Africa/Accra</option>
         <option value='Africa/Addis_Ababa'>Africa/Addis_Ababa</option>
@@ -597,7 +598,7 @@ author = "Yohanes Mario Chandra"
         <option value='Universal'>Universal</option>
         <option value='W-SU'>W-SU</option>
         <option value='WET'>WET</option>
-    </select>
+    </datalist>
 </div>
 
 </select>
