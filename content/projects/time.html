@@ -8,7 +8,7 @@ author = "Yohanes Mario Chandra"
 <script>
     (function(){
         setInterval(function(){
-            var dateObject = new Date(new Date().getTime());
+            var dateObject = new Date();
             var datetime = dateObject.toISOString();
             document.getElementById("target-time").setAttribute("datetime", datetime);
             document.getElementById("target-time").innerHTML = strftime('%H:%M', dateObject);
