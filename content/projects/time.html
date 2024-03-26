@@ -41,7 +41,7 @@ author = "Yohanes Mario Chandra"
             var dateObject = new Date(new Date().getTime() + offset);
             var datetime = dateObject.toISOString();
             document.getElementById("target-time").setAttribute("datetime", datetime);
-            document.getElementById("target-time").innerHTML = strftime('%H:%M:%S', dateObject);
+            document.getElementById("target-time").innerHTML = strftime('%H:%M', dateObject);
         }, 500);
 
         function timeChanged(delta) {
@@ -65,7 +65,7 @@ author = "Yohanes Mario Chandra"
     html, body {
         margin: 0;
         padding: 0;
-        background-color: black;
+        background-color: white;
     }
     #target-time {
         display: flex;
@@ -77,6 +77,6 @@ author = "Yohanes Mario Chandra"
         padding: 0;
         font-size: 60px;
         font-family: Arial, Helvetica, sans-serif;
-        color: white;
+        color: black;
     }
 </style>
