@@ -87,6 +87,8 @@ series = "series"
 [markup]
   [markup.highlight]
     codeFences = false
+  [markup.goldmark.renderer]
+    unsafe = true
 
 [services]
   [services.instagram]
