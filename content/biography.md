@@ -17,7 +17,7 @@ My life in software engineering is interesting, as it introduces me to a lot of 
 
 You can contact me via [email or social media](/contact) if you need anything.
 
-Curriculum Vitae: [Github Link](https://github.com/yohanesmario/CV/blob/main/Yohanes%20Mario%20Chandra%20-%20CV.pdf)
+Curriculum Vitae: [Github Link](https://github.com/yohanesmario/CV/raw/main/Yohanes%20Mario%20Chandra%20-%20CV.pdf)
 
 ---
 
