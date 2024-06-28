@@ -67,6 +67,8 @@ series = "series"
   ShowFullTextinRSS = true
   ShowRssButtonInSectionTermList = true
   defaultTheme = "auto"
+  showtoc = true
+  tocopen = true
 
   [params.profileMode]
     enabled = true
