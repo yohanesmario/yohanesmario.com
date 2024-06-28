@@ -12,6 +12,7 @@ summaryLength = 30
 ignoreFiles = [ "README.md" ]
 enableRobotsTXT = true
 newContentEditor = "code"
+IsProduction = true
 
 [security]
   enableInlineShortcodes = true
