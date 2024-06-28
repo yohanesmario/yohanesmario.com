@@ -1,4 +1,4 @@
-baseURL = "https://yohanesmario.com"
+baseURL = "https://yohanesmario.com/"
 title = "Mario's Blog"
 copyright = "Copyright © 2024, Yohanes Mario Chandra; all rights reserved."
 languageCode = "en"
@@ -82,3 +82,6 @@ series = "series"
   [[params.socialIcons]]
     name = "Email"
     url = "mailto:yohanes.mc@gmail.com"
+  
+  [params.assets]
+    disableFingerprinting = true
