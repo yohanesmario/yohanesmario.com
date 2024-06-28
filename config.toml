@@ -69,6 +69,7 @@ series = "series"
   defaultTheme = "auto"
   showtoc = true
   tocopen = true
+  comments = true
 
   [params.profileMode]
     enabled = true
