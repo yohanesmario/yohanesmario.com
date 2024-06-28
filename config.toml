@@ -68,7 +68,7 @@ series = "series"
     enabled = true
     title = "Yohanes Mario Chandra"
     subtitle = "Courage, kindness, never give up."
-    imageUrl = "https://gravatar.com/userimage/12748246/c3cfdfb564e9ad44619173310a69a14f.jpeg?size=256" # optional
+    imageUrl = "/images/mario-beach-square.png" # optional
     imageTitle = "Profile Picture" # optional
     imageWidth = 180 # custom size
     imageHeight = 180 # custom size
