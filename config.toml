@@ -56,7 +56,8 @@ series = "series"
   home = ["HTML", "RSS", "JSON"]
 
 [params]
-  showReadingTime = true
+  ShowReadingTime = true
+  ShowAllPagesInArchive = true
 
   [params.profileMode]
     enabled = true
