@@ -66,6 +66,7 @@ series = "series"
   ShowAllPagesInArchive = true
   ShowFullTextinRSS = true
   ShowRssButtonInSectionTermList = true
+  defaultTheme = "auto"
 
   [params.profileMode]
     enabled = true
