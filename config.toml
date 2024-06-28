@@ -1,14 +1,13 @@
 baseURL = "https://yohanesmario.com"
 title = "Mario's Blog"
 copyright = "Copyright © 2024, Yohanes Mario Chandra; all rights reserved."
-paginate = 7
+paginate = 5
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 googleAnalytics = "UA-21809588-1"
-disqusShortname = "yohanesmariodotcom"
-theme = "hugo-theme-chunky-poster"
+theme = "PaperMod"
 enableEmoji = true
 summaryLength = 30
 ignoreFiles = [ "README.md" ]
@@ -39,14 +38,14 @@ newContentEditor = "code"
     url = "/"
     weight = 10
   [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
     identifier = "biography"
     name = "Biography"
     url = "/biography/"
-    weight = 0
-  [[menu.main]]
-    identifier = "contact"
-    name = "Contact"
-    url = "/contact/"
     weight = 0
 
 [taxonomies]
@@ -54,45 +53,31 @@ category = "categories"
 tag = "tags"
 series = "series"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [params]
-  author = "Yohanes Mario Chandra"
-  description = "Courage - Kindness - Never Give Up"
-  homepageImage = "/images/63752.jpg"
-  errorImage = "/images/3573497_1080.jpg"
-  share = true
-  showLanguageSwitcher = false
-
-  # Custom CSS and JS. Relative to /static/css and /static/js respectively.
-  customCSS = []
-  customJS = []
-
-  [params.social]
-    rss = true
-    email = "yohanes.mc@gmail.com"
-    facebook = "https://facebook.com/yohanesmario"
-    twitter = "https://twitter.com/yohanesmario"
-    linkedin = "https://linkedin.com/yohanesmario"
-    instagram = "https://stackoverflow.com/yohanesmario"
-    github = "https://github.com/yohanesmario"
-    gitlab = "https://gitlab.com/yohanesmario"
-
-  [params.prismJS]
-    enable = true
-    theme = ""
-
-  [params.commento]
-    enable = true
-    url = "https://commento.io"
-
-[markup]
-  [markup.highlight]
-    codeFences = false
-  [markup.goldmark.renderer]
-    unsafe = true
-
-[services]
-  [services.instagram]
-    disableInlineCSS = true
-
-  [services.twitter]
-    disableInlineCSS = true
+  [params.profileMode]
+    enabled = true
+    title = "Yohanes Mario Chandra"
+    subtitle = "Courage, kindness, never give up."
+    imageUrl = "https://gravatar.com/userimage/12748246/c3cfdfb564e9ad44619173310a69a14f.jpeg?size=256" # optional
+    imageTitle = "Profile Picture" # optional
+    imageWidth = 180 # custom size
+    imageHeight = 180 # custom size
+  
+  [[params.socialIcons]]
+    name = "Github"
+    url = "https://github.com/yohanesmario"
+  [[params.socialIcons]]
+    name = "LinkedIn"
+    url = "https://linkedin.com/in/yohanesmario"
+  [[params.socialIcons]]
+    name = "X"
+    url = "https://x.com/yohanesmario"
+  [[params.socialIcons]]
+    name = "Facebook"
+    url = "https://www.facebook.com/yohanesmario"
+  [[params.socialIcons]]
+    name = "Email"
+    url = "mailto:yohanes.mc@gmail.com"

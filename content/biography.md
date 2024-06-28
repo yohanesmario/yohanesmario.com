@@ -1,15 +1,11 @@
 +++
 title = "Biography"
-date = "2020-07-31"
 aliases = ["about","biography","bio","profile"]
-author = "Yohanes Mario Chandra"
 +++
 
 > There's a lot of things you need to get across this universe. Warp drive, wormhole refractors, you know the thing you need most of all? You need a hand to hold.
 > 
 > **— The Doctor, Doctor Who Season 2, Episode 11**
-
-{{< figure src="https://gravatar.com/avatar/115e84d8301cc14136617cb587b8a876?size=256" class="figure-bio" >}}
 
 My name is Yohanes Mario Chandra and I currently stay in Bali, Indonesia. I studied Informatics at [Parahyangan Catholic University](https://unpar.ac.id). I currently worked at [AgriAku](https://agriaku.com) as a Lead Backend Engineer.
 

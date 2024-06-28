@@ -1,8 +1,6 @@
 +++
 title = "Contact"
-date = "2020-07-31"
 aliases = ["contact"]
-author = "Yohanes Mario Chandra"
 +++
 
 You can contact me via:
