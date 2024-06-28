@@ -91,3 +91,4 @@ series = "series"
   
   [params.assets]
     disableFingerprinting = true
+    favicon = "/images/favicon.svg"
