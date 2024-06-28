@@ -15,6 +15,27 @@
             iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-dark' }, 'https://utteranc.es')
         }
     })
+    function tryChangeTheme(retryCount) {
+        if (retryCount > 100) {
+            return
+        }
+        setTimeout(function(){
+            try {
+                let iframe = document.getElementsByClassName('utterances-frame')[0]
+                if (!iframe) {
+                    tryChangeTheme(retryCount+1)
+                }
+                if (localStorage.getItem('pref-theme') === 'dark') {
+                    iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-dark' }, 'https://utteranc.es')
+                } else {
+                    iframe.contentWindow.postMessage({ type: 'set-theme', theme: 'github-light' }, 'https://utteranc.es')
+                }
+                tryChangeTheme(retryCount+1)
+            } catch (e) {
+                tryChangeTheme(retryCount+1)
+            }
+        }, 50)
+    }
 </script>
 {{- end }}
 <script src="https://utteranc.es/client.js"
@@ -23,5 +44,6 @@
         label="Comment Thread"
         theme="preferred-color-scheme"
         crossorigin="anonymous"
+        onload="tryChangeTheme(0)"
         async>
 </script>
