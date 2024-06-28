@@ -1,6 +1,7 @@
 +++
 title = "Contact"
 aliases = ["contact"]
+comments = false
 +++
 
 You can contact me via:
