@@ -64,6 +64,8 @@ series = "series"
 [params]
   ShowReadingTime = true
   ShowAllPagesInArchive = true
+  ShowFullTextinRSS = true
+  ShowRssButtonInSectionTermList = true
 
   [params.profileMode]
     enabled = true
