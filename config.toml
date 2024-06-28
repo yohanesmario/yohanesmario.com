@@ -42,6 +42,11 @@ newContentEditor = "code"
     url = "/posts/"
     weight = 10
   [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 10
+  [[menu.main]]
     identifier = "biography"
     name = "Biography"
     url = "/biography/"
