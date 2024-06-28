@@ -1,7 +1,6 @@
 baseURL = "https://yohanesmario.com"
 title = "Mario's Blog"
 copyright = "Copyright © 2024, Yohanes Mario Chandra; all rights reserved."
-paginate = 5
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
@@ -57,6 +56,8 @@ series = "series"
   home = ["HTML", "RSS", "JSON"]
 
 [params]
+  showReadingTime = true
+
   [params.profileMode]
     enabled = true
     title = "Yohanes Mario Chandra"
