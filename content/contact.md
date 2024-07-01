@@ -3,6 +3,7 @@ title = "Contact"
 aliases = ["contact"]
 comments = false
 ShowReadingTime = false
+ShowWordCount = false
 +++
 
 You can contact me via:

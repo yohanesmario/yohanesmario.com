@@ -3,6 +3,7 @@ title = "Biography"
 aliases = ["about","biography","bio","profile"]
 comments = false
 ShowReadingTime = false
+ShowWordCount = false
 +++
 
 > There's a lot of things you need to get across this universe. Warp drive, wormhole refractors, you know the thing you need most of all? You need a hand to hold.
