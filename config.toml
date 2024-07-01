@@ -63,13 +63,14 @@ series = "series"
 
 [params]
   ShowReadingTime = true
-  ShowAllPagesInArchive = true
+  ShowWordCount = true
   ShowFullTextinRSS = true
   ShowRssButtonInSectionTermList = true
   defaultTheme = "auto"
   showtoc = true
   tocopen = true
   comments = true
+  ShowCodeCopyButtons = true
 
   [params.profileMode]
     enabled = true
