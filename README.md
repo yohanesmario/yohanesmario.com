@@ -6,6 +6,7 @@ Powered by [Hugo](https://gohugo.io).
 
 ## Getting Started
 - Make sure you've installed hugo: `brew install hugo`
+- Run `git submodule init && git submodule update` to clone the theme
 - Run `./start.sh` to start the server
 
 ## Creating New Post
