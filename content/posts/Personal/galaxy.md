@@ -1,7 +1,6 @@
 ---
 title: "Galaxy"
 date: 2024-07-10T11:03:00+0800
-draft: true
 tags: ["ideas", "poetry"]
 ---
 
