@@ -14,6 +14,6 @@ My name is Yohanes Mario Chandra and I currently stay in Bali, Indonesia. I stud
 
 My life in software engineering is interesting, as it introduces me to a lot of interesting and new paradigms I've never heard before in my studies. I'm still learning from many great mentors, and I hope I always will.
 
-You can contact me via [email or social media](/contact) if you need anything.
+You can contact me via [email or social media](/contact) if you need anything. Or, you can send me a mail written in parchment paper via [Owl Post](http://bit.ly/3zJ9tXc).
 
 Curriculum Vitae: [Github Link](https://github.com/yohanesmario/CV/raw/main/gen/Yohanes%20Mario%20Chandra%20-%20CV.pdf)
