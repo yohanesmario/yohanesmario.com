@@ -1,0 +1,13 @@
++++
+title = "Color"
+date = "2024-07-27"
+author = "Yohanes Mario Chandra"
++++
+<script>
+    // set body color using query param `color`
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const color = urlParams.get('color');
+        document.body.style.backgroundColor = color;
+    });
+</script>
