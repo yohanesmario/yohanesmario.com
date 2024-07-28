@@ -3,125 +3,61 @@ title = "Time"
 date = "2020-07-31"
 author = "Yohanes Mario Chandra"
 +++
-<main class="main">
-    <div class="clockbox">
-        <svg id="clock" xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
-            <g id="face">
-                <circle class="circle" cx="300" cy="300" r="253.9"/>
-                <path class="hour-marks" d="M300.5 94V61M506 300.5h32M300.5 506v33M94 300.5H60M411.3 107.8l7.9-13.8M493 190.2l13-7.4M492.1 411.4l16.5 9.5M411 492.3l8.9 15.3M189 492.3l-9.2 15.9M107.7 411L93 419.5M107.5 189.3l-17.1-9.9M188.1 108.2l-9-15.6"/>
-                <circle class="mid-circle" cx="300" cy="300" r="16.2"/>
-            </g>
-            <g id="hour">
-                <path class="hour-arm" d="M300.5 298V142"/>
-                <circle class="sizing-box" cx="300" cy="300" r="253.9"/>
-            </g>
-            <g id="minute">
-                <path class="minute-arm" d="M300.5 298V67"/>
-                <circle class="sizing-box" cx="300" cy="300" r="253.9"/>
-            </g>
-            <g id="second">
-                <path class="second-arm" d="M300.5 350V55"/>
-                <circle class="sizing-box" cx="300" cy="300" r="253.9"/>
-            </g>
-        </svg>
-    </div><!-- .clockbox -->
-</main>
+<main class="main"></main>
 <script>
-    const HOURHAND = document.querySelector("#hour");
-    const MINUTEHAND = document.querySelector("#minute");
-    const SECONDHAND = document.querySelector("#second");
+    // get timezone from `tz` query param
+    const urlParams = new URLSearchParams(window.location.search);
+    const tz = urlParams.get('tz') || 'UTC';
+    var offset = 0;
 
-    var date = new Date();
-    console.log(date);
-
-    let hr = date.getHours();
-    let min = date.getMinutes();
-    let sec = date.getSeconds();
-    console.log("Hours: " + hr);
-    console.log("Minutes: " + min);
-    console.log("Seconds: " + sec);
-
-    let hrPosition = (hr * 360) / 12 + (min * (360 / 60)) / 12;
-    let minPosition = (min * 360) / 60 + (sec * (360 / 60)) / 60;
-    let secPosition = (sec * 360) / 60;
-
-    function runTheClock() {
-    hrPosition = hrPosition + 3 / 360;
-    minPosition = minPosition + 6 / 60;
-    secPosition = secPosition + 6;
-
-    HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
-    MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";
-    SECONDHAND.style.transform = "rotate(" + secPosition + "deg)";
+    // fetch timestamp from an ntp
+    fetch('https://worldtimeapi.org/api/ip', { method: 'GET', mode: 'cors' })
+        .then(response => response.json())
+        .then(data => {
+            // get the timestamp from the ntp server
+            const timestamp = new Date(data.datetime).getTime();
+            // get timestamp offset from local
+            offset = timestamp - Date.now();
+        })
+        .catch(error => {
+            console.error('Error fetching timestamp:', error);
+        });
+    
+    // function to update the current time
+    function updateTime() {
+        const main = document.querySelector('.main');
+        // get current time based on the timezone
+        const now = new Date(Date.now() + offset);
+        const currentTime = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: 'numeric', hour12: false });
+        const currentDate = now.toLocaleDateString('en-ID', { timeZone: tz, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        // update the content of the element with the class `main` to display the current time
+        main.innerHTML = `<div><div class='time'>${currentTime}</div><div class='date'>${currentDate}</div></div>`;
     }
-
-    var interval = setInterval(runTheClock, 1000);
+    
+    // update the time every 500ms
+    setInterval(updateTime, 500);
+    
+    // when dom is loaded, update element with the class `main` to display the current time using digital clock format
+    document.addEventListener('DOMContentLoaded', updateTime);
+</script>
 </script>
 <style>
-    /* Layout */
     .main {
         display: flex;
         padding: 2em;
-        height: 90vh;
+        height: 100vh;
         justify-content: center;
-        align-items: middle;
+        align-items: center;
+        text-align: center;
+        font-family: Arial;
     }
 
-    .clockbox,
-    #clock {
-        width: 100%;
+    .time {
+        font-size: 16em;
+        font-weight: bold;
     }
 
-    /* Clock styles */
-    .circle {
-        fill: none;
-        stroke: #d0d0d0;
-        stroke-width: 64px;
-        stroke-miterlimit: 10;
-    }
-
-    .mid-circle {
-        fill: #000;
-    }
-    .hour-marks {
-        fill: none;
-        stroke: #000;
-        stroke-width: 9;
-        stroke-miterlimit: 10;
-    }
-
-    .hour-arm {
-        fill: none;
-        stroke: #000;
-        stroke-width: 17;
-        stroke-miterlimit: 10;
-    }
-
-    .minute-arm {
-        fill: none;
-        stroke: #000;
-        stroke-width: 11;
-        stroke-miterlimit: 10;
-    }
-
-    .second-arm {
-        fill: none;
-        stroke: #000;
-        stroke-width: 4;
-        stroke-miterlimit: 10;
-    }
-
-    /* Transparent box ensuring arms center properly. */
-    .sizing-box {
-        fill: none;
-    }
-
-    /* Make all arms rotate around the same center point. */
-    /* Optional: Use transition for animation. */
-    #hour,
-    #minute,
-    #second {
-        transform-origin: 300px 300px;
-        transition: transform .5s ease-in-out;
+    .date {
+        font-size: 3em;
     }
 </style>
