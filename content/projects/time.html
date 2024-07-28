@@ -31,7 +31,9 @@ author = "Yohanes Mario Chandra"
         const currentTime = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: 'numeric', hour12: false });
         const currentDate = now.toLocaleDateString('en-ID', { timeZone: tz, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         // update the content of the element with the class `main` to display the current time
-        main.innerHTML = `<div><div class='time'>${currentTime}</div><div class='date'>${currentDate}</div></div>`;
+        main.innerHTML = `<div><div class='time'>${currentTime}</div><div class='date'>${currentDate} <span class='tz'>(${tz})</span></div></div>`;
+        // add more clock for timezones: Asia/Makassar, Miami/Florida
+        main.innerHTML += `<div><div class='time-small'>${now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: 'numeric', hour12: false })}</div><div class='date-small'>${now.toLocaleDateString('en-ID', { timeZone: 'America/New_York', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}  <span class='tz'>(Miami)</span></div></div>`;
     }
     
     // update the time every 500ms
@@ -54,6 +56,7 @@ author = "Yohanes Mario Chandra"
         align-items: center;
         text-align: center;
         font-family: Arial;
+        flex-direction: column;
     }
 
     .time {
@@ -62,6 +65,25 @@ author = "Yohanes Mario Chandra"
     }
 
     .date {
-        font-size: 3em;
+        font-size: 2.5em;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .time-small {
+        padding-top: 1em;
+        font-size: 4em;
+        font-weight: bold;
+    }
+
+    .date-small {
+        font-size: 1em;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .tz {
+        color: #888;
+        margin-left: 0.5em;
     }
 </style>
