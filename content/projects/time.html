@@ -39,6 +39,11 @@ author = "Yohanes Mario Chandra"
     
     // when dom is loaded, update element with the class `main` to display the current time using digital clock format
     document.addEventListener('DOMContentLoaded', updateTime);
+
+    // on click, rotate the entire page 90 degrees more
+    document.addEventListener('click', function() {
+        document.body.style.transform = `rotate(${(parseInt(document.body.style.transform.replace('rotate(', '').replace('deg)', '')) || 0) + 90}deg)`;
+    });
 </script>
 </script>
 <style>
