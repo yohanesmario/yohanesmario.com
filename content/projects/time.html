@@ -9,6 +9,7 @@ author = "Yohanes Mario Chandra"
     const urlParams = new URLSearchParams(window.location.search);
     const tz = urlParams.get('tz') || 'UTC';
     var offset = 0;
+    var currentDateTimeHtmlString = '';
 
     // fetch timestamp from an ntp
     fetch('https://worldtimeapi.org/api/ip', { method: 'GET', mode: 'cors' })
@@ -25,17 +26,19 @@ author = "Yohanes Mario Chandra"
     
     // function to update the current time
     function updateTime() {
-        const main = document.querySelector('.main');
         // get current time based on the timezone
         const now = new Date(Date.now() + offset);
         const currentTime = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: 'numeric', hour12: false });
         const currentDate = now.toLocaleDateString('en-ID', { timeZone: tz, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         // update the content of the element with the class `main` to display the current time
-        main.innerHTML = `<div><div class='time'>${currentTime}</div><div class='date'>${currentDate}</div></div>`;
+        const dateTimeHtmlString = `<div><div class='time'>${currentTime}</div><div class='date'>${currentDate}</div></div>`;
+        if (currentDateTimeHtmlString !== dateTimeHtmlString) {
+            document.querySelector('.main').innerHTML = dateTimeHtmlString;
+            currentDateTimeHtmlString = dateTimeHtmlString;
+        }
+        // update the time every 500ms
+        setTimeout(updateTime, 500);
     }
-    
-    // update the time every 500ms
-    setInterval(updateTime, 500);
     
     // when dom is loaded, update element with the class `main` to display the current time using digital clock format
     document.addEventListener('DOMContentLoaded', updateTime);
