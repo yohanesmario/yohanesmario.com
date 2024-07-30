@@ -9,6 +9,7 @@ author = "Yohanes Mario Chandra"
     const urlParams = new URLSearchParams(window.location.search);
     const tz = urlParams.get('tz') || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     const rotate = urlParams.get('rotate') || '0';
+    const hour24 = urlParams.get('hour24') !== 'true';
     var offset = 0;
     var currentTimestampInMinutes = 0;
 
@@ -32,7 +33,7 @@ author = "Yohanes Mario Chandra"
         const timestampInMinutes = Math.floor(timestamp / 60000);
         if (currentTimestampInMinutes !== timestampInMinutes) {
             const now = new Date(timestamp);
-            const currentTime = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: 'numeric', hour12: false });
+            const currentTime = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: 'numeric', hour12: !hour24 }).replace(/(AM|PM)/, `<span class="ampm">$1</span>`);
             const currentDate = now.toLocaleDateString('en-ID', { timeZone: tz, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             // update the content of the element with the class `main` to display the current time
             document.querySelector('.main').innerHTML = `<div><div class='time'>${currentTime}</div><div class='date'>${currentDate}</div></div>`;
@@ -68,6 +69,10 @@ author = "Yohanes Mario Chandra"
     .time {
         font-size: 12em;
         font-weight: bold;
+    }
+
+    .ampm {
+        font-size: 50%;
     }
 
     .date {
