@@ -24,7 +24,7 @@ author = "Yohanes Mario Chandra"
             // get the timestamp from the ntp server
             const timestamp = new Date(data.datetime).getTime();
             // get timestamp offset from local
-            offset = timestamp - now - (roundTripTime / 2);
+            offset = timestamp - now + (roundTripTime / 2);
         })
         .catch(error => {
             console.error('Error fetching timestamp:', error);
