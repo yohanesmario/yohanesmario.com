@@ -53,7 +53,8 @@ author = "Yohanes Mario Chandra"
                 } else {
                     const currentDate = new Date(year, month, dayCounter);
                     const isCurrentDate = currentDate.toDateString() === now.toDateString();
-                    rowHTML += `<td${isCurrentDate ? ' class="current-date"' : ''}>${dayCounter}</td>`;
+                    const isWeekend = currentDate.getDay() === 0 || currentDate.getDay() === 6; // Sunday is 0, Saturday is 6
+                    rowHTML += `<td${isCurrentDate ? ' class="current-date"' : ''}${isWeekend ? ' class="weekend"' : ''}>${dayCounter}</td>`;
                     dayCounter++;
                 }
             }
@@ -83,7 +84,8 @@ author = "Yohanes Mario Chandra"
                 } else {
                     const currentDate = new Date(year, month + 1, nextMonthDayCounter);
                     const isCurrentDate = currentDate.toDateString() === now.toDateString();
-                    rowHTML += `<td${isCurrentDate ? ' class="current-date"' : ''}>${nextMonthDayCounter}</td>`;
+                    const isWeekend = currentDate.getDay() === 0 || currentDate.getDay() === 6; // Sunday is 0, Saturday is 6
+                    rowHTML += `<td${isCurrentDate ? ' class="current-date"' : ''}${isWeekend ? ' class="weekend"' : ''}>${nextMonthDayCounter}</td>`;
                     nextMonthDayCounter++;
                 }
             }
@@ -212,6 +214,10 @@ author = "Yohanes Mario Chandra"
     .calendar td {
         padding: 0.5em;
         text-align: center;
+    }
+
+    .calendar .weekend {
+        color: #888;
     }
 
     .calendar .month-name {
