@@ -9,7 +9,7 @@ author = "Yohanes Mario Chandra"
     const urlParams = new URLSearchParams(window.location.search);
     const tz = urlParams.get('tz') || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     const rotate = urlParams.get('rotate') || '0';
-    const hour24 = urlParams.get('hour24') !== 'true';
+    const hour24 = (urlParams.get('hour24') || 'true') === 'true';
     var offset = 0;
     var currentTimestampInMinutes = 0;
 
