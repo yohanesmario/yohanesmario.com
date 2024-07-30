@@ -11,7 +11,7 @@ My phone is constantly being used and picked up, so it's not an ideal solution f
 
 The problem is, kindle's browser has an issue with javascript Date object, as it will display an incorrect time if we use the Date object directly without some modification. So to mitigate this, we fetch the current timestamp from an NTP server on each load, and compare it to the local timestamp to get the offset. We will use this offset to make sure we will display the correct time based on the provided timezone.
 
-To test this, you can visit [https://yohanesmario.com/projects/time?tz=Asia/Makassar&rotate=0](https://yohanesmario.com/projects/time?tz=Asia/Makassar&rotate=0). This will not auto detect your timezone, as that's impossible to do on the kindle browser, so you'll need to provide your timezone using the `tz` query param. We also need to enable display orientation changes, so I just add an on click listener to rotate the entire page 90 degrees on each click, and a `rotate` query param.
+To test this, you can visit [https://yohanesmario.com/projects/time?tz=Asia/Makassar&rotate=0&hour24=true](https://yohanesmario.com/projects/time?tz=Asia/Makassar&rotate=0). This will not auto detect your timezone, as that's impossible to do on the kindle browser, so you'll need to provide your timezone using the `tz` query param. We also need to enable display orientation changes, so I just add an on click listener to rotate the entire page 90 degrees on each click, and a `rotate` query param. Additionally, I've added `hour24` query param to switch between am/pm and 24 hour format, this defaults to true.
 
 Here's the end result:
 ![Kindle Clock](/images/kindle-clock.jpg)
