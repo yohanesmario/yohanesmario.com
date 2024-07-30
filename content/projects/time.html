@@ -15,13 +15,16 @@ author = "Yohanes Mario Chandra"
     var currentTimestampInMinutes = 0;
 
     // fetch timestamp from an ntp
+    const requestStartTime = Date.now();
     fetch('https://worldtimeapi.org/api/ip', { method: 'GET', mode: 'cors' })
         .then(response => response.json())
         .then(data => {
+            const now = Date.now();
+            const roundTripTime = now - requestStartTime;
             // get the timestamp from the ntp server
             const timestamp = new Date(data.datetime).getTime();
             // get timestamp offset from local
-            offset = timestamp - Date.now();
+            offset = timestamp - now - (roundTripTime / 2);
         })
         .catch(error => {
             console.error('Error fetching timestamp:', error);
