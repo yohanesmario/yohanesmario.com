@@ -38,8 +38,9 @@ author = "Yohanes Mario Chandra"
             document.querySelector('.main').innerHTML = `<div><div class='time'>${currentTime}</div><div class='date'>${currentDate}</div></div>`;
             currentTimestampInMinutes = timestampInMinutes;
         }
-        // update the time every 1 second
-        setTimeout(updateTime, 1000);
+        // update the time at next minute
+        const targetTimestamp = (timestampInMinutes + 1) * 60000;
+        setTimeout(updateTime, targetTimestamp - timestamp);
     }
     
     // when dom is loaded, update element with the class `main` to display the current time using digital clock format
