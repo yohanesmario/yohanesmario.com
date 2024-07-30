@@ -7,7 +7,7 @@ author = "Yohanes Mario Chandra"
 <script>
     // get timezone from `tz` query param
     const urlParams = new URLSearchParams(window.location.search);
-    const tz = urlParams.get('tz') || 'UTC';
+    const tz = urlParams.get('tz') || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     const rotate = urlParams.get('rotate') || '0';
     var offset = 0;
     var currentTimestampInMinutes = 0;
