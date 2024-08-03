@@ -167,10 +167,14 @@ author = "Yohanes Mario Chandra"
         updateTime();
     });
 
-    // on click, rotate the entire page 90 degrees more
+    // on click, blink the page to 50% opacity, and revert back to 100% opacity
     document.addEventListener('click', function() {
-        document.body.style.transform = `rotate(${(parseInt(document.body.style.transform.replace('rotate(', '').replace('deg)', '')) || 0) + 90}deg)`;
+        document.body.style.opacity = '0.5';
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
     });
+    
 </script>
 <style>
     .main {
