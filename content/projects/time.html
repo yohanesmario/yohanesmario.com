@@ -169,10 +169,13 @@ author = "Yohanes Mario Chandra"
 
     // on click, blink the page to 50% opacity, and revert back to 100% opacity
     document.addEventListener('click', function() {
-        document.body.style.opacity = '0.5';
-        setTimeout(() => {
-            document.body.style.opacity = '1';
-        }, 100);
+        if (document.body.style.filter == 'invert(100%)') {
+            document.body.style.filter = '';
+            document.body.style.background = '#FFFFFF';
+        } else {
+            document.body.style.filter = 'invert(100%)';
+            document.body.style.background = '#000000';
+        }
     });
     
 </script>
